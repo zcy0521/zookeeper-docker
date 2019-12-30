@@ -14,11 +14,24 @@ cd zookeeper-docker
 sudo docker-compose -f stack.yml up -d
 ```
 
+## dataDir
+
+[ZooKeeper Documentation](https://zookeeper.apache.org/doc/current/zookeeperAdmin.html)
+
+```
+tickTime=2000
+dataDir=/var/lib/zookeeper/
+clientPort=2181
+initLimit=5
+syncLimit=2
+server.1=zoo1:2888:3888
+server.2=zoo2:2888:3888
+server.3=zoo3:2888:3888
+```
+
 ## Docker
 
 [Docker Hub](https://hub.docker.com/_/zookeeper)
-
-[ZooKeeper Documentation](https://zookeeper.apache.org/doc/current/zookeeperAdmin.html)
 
 ```shell script
 sudo docker pull zookeeper
