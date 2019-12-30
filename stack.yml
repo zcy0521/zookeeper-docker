@@ -1,50 +1,50 @@
 version: '3.1'
 
 services:
-  zookeeper1:
+  zoo1:
     image: zookeeper
     restart: always
-    hostname: zookeeper1
-    container_name: zookeeper1
+    hostname: zoo1
+    container_name: zoo1
     ports:
       - 2181:2181
     volumes:
-      - ${HOME}/appdata/zookeeper/zookeeper1/data:/data
-      - ${HOME}/appdata/zookeeper/zookeeper1/datalog:/datalog
-      - ${HOME}/appdata/zookeeper/zookeeper1/logs:/logs
+      - /var/lib/zookeeper/data/zoo1:/data
+      - /var/lib/zookeeper/datalog/zoo1:/datalog
+      - /var/log/zookeeper/zoo1:/logs
     environment:
       ZOO_MY_ID: 1
-      ZOO_SERVERS: server.1=0.0.0.0:2888:3888;2181 server.2=zookeeper2:2888:3888;2181 server.3=zookeeper3:2888:3888;2181
+      ZOO_SERVERS: server.1=0.0.0.0:2888:3888;2181 server.2=zoo2:2888:3888;2181 server.3=zoo3:2888:3888;2181
       ZOO_LOG4J_PROP: INFO,ROLLINGFILE
 
-  zookeeper2:
+  zoo2:
     image: zookeeper
     restart: always
-    hostname: zookeeper2
-    container_name: zookeeper2
+    hostname: zoo2
+    container_name: zoo2
     ports:
       - 2182:2181
     volumes:
-      - ${HOME}/appdata/zookeeper/zookeeper2/data:/data
-      - ${HOME}/appdata/zookeeper/zookeeper2/datalog:/datalog
-      - ${HOME}/appdata/zookeeper/zookeeper2/logs:/logs
+      - /var/lib/zookeeper/data/zoo2:/data
+      - /var/lib/zookeeper/datalog/zoo2:/datalog
+      - /var/log/zookeeper/zoo2:/logs
     environment:
       ZOO_MY_ID: 2
-      ZOO_SERVERS: server.1=zookeeper1:2888:3888;2181 server.2=0.0.0.0:2888:3888;2181 server.3=zookeeper3:2888:3888;2181
+      ZOO_SERVERS: server.1=zoo1:2888:3888;2181 server.2=0.0.0.0:2888:3888;2181 server.3=zoo3:2888:3888;2181
       ZOO_LOG4J_PROP: INFO,ROLLINGFILE
 
-  zookeeper3:
+  zoo3:
     image: zookeeper
     restart: always
-    hostname: zookeeper3
-    container_name: zookeeper3
+    hostname: zoo3
+    container_name: zoo3
     ports:
       - 2183:2181
     volumes:
-      - ${HOME}/appdata/zookeeper/zookeeper3/data:/data
-      - ${HOME}/appdata/zookeeper/zookeeper3/datalog:/datalog
-      - ${HOME}/appdata/zookeeper/zookeeper3/logs:/logs
+      - /var/lib/zookeeper/data/zoo3:/data
+      - /var/lib/zookeeper/datalog/zoo3:/datalog
+      - /var/log/zookeeper/zoo3:/logs
     environment:
       ZOO_MY_ID: 3
-      ZOO_SERVERS: server.1=zookeeper1:2888:3888;2181 server.2=zookeeper2:2888:3888;2181 server.3=0.0.0.0:2888:3888;2181
+      ZOO_SERVERS: server.1=zoo1:2888:3888;2181 server.2=zoo2:2888:3888;2181 server.3=0.0.0.0:2888:3888;2181
       ZOO_LOG4J_PROP: INFO,ROLLINGFILE
