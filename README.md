@@ -5,7 +5,8 @@
 ```shell script
 git clone https://github.com/zcy0521/zookeeper-docker.git
 cd zookeeper-docker
-docker stack deploy -c stack.yml zookeeper
+docker-compose up -d
+docker-compose ps
 ```
 
 ## Docker
