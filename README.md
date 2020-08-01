@@ -7,6 +7,8 @@ git clone https://github.com/zcy0521/zookeeper-docker.git
 cd zookeeper-docker
 docker-compose up -d
 docker-compose ps
+docker-compose stop
+docker-compose rm
 ```
 
 ## Docker
