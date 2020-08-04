@@ -9,9 +9,9 @@ services:
     ports:
       - 2181:2181
     volumes:
-      - ./zoo1/data:/data
-      - ./zoo1/datalog:/datalog
-      - ./zoo1/logs:/logs
+      - ./data/zoo1:/data
+      - ./datalog/zoo1:/datalog
+      - ./logs/zoo1:/logs
     environment:
       ZOO_MY_ID: 1
       ZOO_SERVERS: server.1=0.0.0.0:2888:3888;2181 server.2=zoo2:2888:3888;2181 server.3=zoo3:2888:3888;2181
@@ -25,9 +25,9 @@ services:
     ports:
       - 2182:2181
     volumes:
-      - ./zoo2/data:/data
-      - ./zoo2/datalog:/datalog
-      - ./zoo2/logs:/logs
+      - ./data/zoo2:/data
+      - ./datalog/zoo2:/datalog
+      - ./logs/zoo2:/logs
     environment:
       ZOO_MY_ID: 2
       ZOO_SERVERS: server.1=zoo1:2888:3888;2181 server.2=0.0.0.0:2888:3888;2181 server.3=zoo3:2888:3888;2181
@@ -41,9 +41,9 @@ services:
     ports:
       - 2183:2181
     volumes:
-      - ./zoo3/data:/data
-      - ./zoo3/datalog:/datalog
-      - ./zoo3/logs:/logs
+      - ./data/zoo3:/data
+      - ./datalog/zoo3:/datalog
+      - ./logs/zoo3:/logs
     environment:
       ZOO_MY_ID: 3
       ZOO_SERVERS: server.1=zoo1:2888:3888;2181 server.2=zoo2:2888:3888;2181 server.3=0.0.0.0:2888:3888;2181
