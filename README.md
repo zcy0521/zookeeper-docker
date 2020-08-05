@@ -2,13 +2,19 @@
 
 ## Usage
 
+- 启动
+
 ```shell script
 git clone https://github.com/zcy0521/zookeeper-docker.git
 cd zookeeper-docker
 sudo docker-compose up -d
 sudo docker-compose ps
-sudo docker-compose stop
-sudo docker-compose rm
+```
+
+- 删除
+
+```shell script
+sudo docker-compose down
 ```
 
 ## Docker
@@ -56,11 +62,7 @@ sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
 [Docker Hub](https://hub.docker.com/_/zookeeper)
 
 ```shell script
-sudo docker pull zookeeper
-sudo docker run -d --name zookeeper -p 2181:2181 -v /var/lib/zookeeper:/data zookeeper
-sudo docker exec -it zookeeper bash
-sudo docker stop zookeeper
-sudo docker rm zookeeper
+docker run -d --name zookeeper -p 2181:2181 zookeeper
 ```
 
 ## Zookeeper
